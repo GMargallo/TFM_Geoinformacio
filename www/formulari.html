@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulari de recollida de dades</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="crossorigin=""/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/> -->
+    <link rel="stylesheet" href="css/formulari.css">
+
+    
+    
+<!-- S'AFEGEIXEN ELS JS DE LEAFLET PER EL MAPA, I DE BOOTSTRAP PER DONAR ESTILS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<!-- JQUERY NECESSARI PER EFECTUAR LA CONNEXIÓ AMB EL HOSTING -->    
+    <script src="js/jquery-3.6.4.min.js"></script>   
+<!-- EL SEGÜENT JS HA DE TENIR DEFER, PERQUE HA DE CARREGAR-SE DESPRÉS DE QUE EXISTEIXI EL id="map", JA QUE SI NO EL JS NO TROBARIA EL MAPA. -->
+    <script src="js/formulari.js" defer></script>    
+
+    
+
+</head>
+
+  <body>
+    <header>
+      <br>
+      <a href="https://www.catalunyacamina.org/" target="_blank"><img src="images/logo.png" alt="" id="cat_img"></a>
+      <h1>Sistema col·laboratiu de millora peatonal</h1>
+      <h3>Formulari d'introducció d'incidències</h3>         
+    </header><br>
+    
+   
+    <div id="contingut">
+      <form id="miFormulario">
+
+        
+        <label for="descripcio"><strong>Descripció</strong></label>
+        <textarea maxlength="255" type="text" id="descripcio" name="descripcio" cols="60" rows="4" required></textarea><br>
+
+        <label for="opcions"><strong>Quin d'aquests punts s'aproxima molt més a la realitat que comparteixes?</strong></label>
+        <select name="opcions" id="opcions" required>
+          <option value="" selected disabled hidden>Escull opció</option>
+          <option value="1">Punt negre per anar a peu (risc d'accidentalitat)</option>
+          <option value="2">Problema d'accessibilitat (infraestructura deficient)</option>
+          <option value="3">Senyalització confusa per l'itinerari a peu</option>
+          <option value="4">Baixa visibilitat.</option>
+          <option value="5">Bon exemple d'accessibilitat (infraestructura accessible)</option>
+          <option value="6">Bona pràctica de mobilitat (actes i experències que milloren la vida del vianant)</option>
+          
+        </select><br>
+
+
+        <label for="imagen"><strong>Escull una imatge (Mida inferior a 8MB):</strong></label>
+        <input type="file" name="imagen" accept="image/*" required><br>
+
+        <div><h6><strong>Selecciona amb un clic la ubicació al mapa o escriu les coordenades</strong></h6></div>
+        
+          
+          <div>Latitud</div>
+          <input type="text" id="latitud" name="latitud" required><br>      
+            
+          <div>Longitud</div>        
+          <input type="text" id="longitud" name="longitud" required><br>
+        
+          <div id="map"></div><br>
+         
+               
+
+        <input type="submit" value="Enviar"><br>
+        
+
+      </form>
+                   
+      
+	  
+    </div>
+  </body>
+</html>
